@@ -471,14 +471,19 @@ open class NWSTokenView: UIView, UIScrollViewDelegate, UITextViewDelegate
         else // Text View Input
         {
             // Blank return
-            if textView.text == "" && text == "\n"
+            if textView.text == "" && (!(text >= "a" && text <= "z") && !(text >= "A" && text <= "Z") && text != "\n" && text != "")
             {
                 self.delegate?.tokenView(self, didEnterText: textView.text)
                 return false
             }
             
+            if textView.text == "" && text == "\n" {
+                self.endEditing(true);
+                return false;
+            }
+            
             // Add new token
-            if textView.text != "" && text == "\n"
+            if textView.text != "" && (text == "\n" || text == ",")
             {
                 self.shouldBecomeFirstResponder = true
                 self.delegate?.tokenView(self, didEnterText: textView.text)
