@@ -471,13 +471,8 @@ open class NWSTokenView: UIView, UIScrollViewDelegate, UITextViewDelegate
         else // Text View Input
         {
             // Blank return
-            if textView.text == "" && (text != "\n" && text != "")
-            {
-                self.delegate?.tokenView(self, didEnterText: textView.text)
-                return false
-            }
-            
             if textView.text == "" && text == "\n" {
+                self.delegate?.tokenView(self, didEnterText: textView.text);
                 self.endEditing(true);
                 return false;
             }
