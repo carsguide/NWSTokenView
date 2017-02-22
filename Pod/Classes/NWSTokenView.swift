@@ -471,7 +471,7 @@ open class NWSTokenView: UIView, UIScrollViewDelegate, UITextViewDelegate
         else // Text View Input
         {
             // Blank return
-            if textView.text == "" && (!(text >= "a" && text <= "z") && !(text >= "A" && text <= "Z") && text != "\n" && text != "")
+            if textView.text == "" && (text != "\n" && text != "")
             {
                 self.delegate?.tokenView(self, didEnterText: textView.text)
                 return false
